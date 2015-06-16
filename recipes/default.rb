@@ -13,8 +13,8 @@ package 'httpd' do
 end
 
 # #httpd.conf設定
-case node[ :platform_family ]
-  when 'rhel'
+case node[ :platform ]
+  when 'centos'
 
     case node[:platform_version].to_i
       when 6

@@ -1,5 +1,6 @@
 
 default['httpd']['DocumentRoot'] = '/var/www/html'
-#default['httpd']['Alias'][0]['name'] = '/aaa/'
-#default['httpd']['Alias'][0]['source'] = '/var/www/icons/'
 
+default['httpd']['Alias'] = [
+    # {:name => '/ts/', :source => '/var/www/html/sub/'}
+]

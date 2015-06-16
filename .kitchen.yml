@@ -12,11 +12,10 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[as_apache2::default]
+      - recipe[as-apache2::default]
     attributes:
       httpd:
         DocumentRoot: '/var/www/html'
         Alias:
-          ts:
-            name: '/ts/'
+          - name: '/ts/'
             source: '/var/www/html/sub/'

@@ -29,8 +29,3 @@ end
 describe command('curl localhost/ts/alias.html') do
   its(:stdout) { should match /bbb/ }
 end
-
-# value = 'curl localhost'
-# value = '#{cmd}'
-# value = `#{curl localhost}`
-# puts(value)

@@ -158,10 +158,8 @@ DocumentRoot "<%= node['httpd']['DocumentRoot'] %>"
     Require all granted
 </Directory>
 
-<% if node['httpd'].key?('Alias') %>
-<% node['httpd']['Alias'].each do |key, value| %>
+<% node['httpd']['Alias'].each do |value| %>
 Alias <%= value['name'] %> "<%= value['source'] %>"
-<% end %>
 <% end %>
 
 #
