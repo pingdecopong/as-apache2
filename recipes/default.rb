@@ -51,7 +51,3 @@ end
 service 'httpd' do
   action [ :enable, :start ]
 end
-
-set_document_root '/var/www/icons' do
-
-end
