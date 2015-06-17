@@ -1,7 +1,7 @@
 
 class Chef
   class Recipe
-    def set_document_root(path)
+    def set_document_root2(path)
       template '/etc/httpd/conf/httpd.conf' do
         source node[:platform_version].to_i.to_s + '/httpd.conf.erb'
         mode 0644
