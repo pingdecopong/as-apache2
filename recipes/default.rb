@@ -16,21 +16,33 @@ end
 case node[ :platform ]
   when 'centos'
 
-    case node[:platform_version].to_i
-      when 6
-        template '/etc/httpd/conf/httpd.conf' do
-          source '6/httpd.conf.erb'
-          mode 0644
-          notifies :restart, 'service[httpd]'
-        end
-      when 7
-        template '/etc/httpd/conf/httpd.conf' do
-          source '7/httpd.conf.erb'
-          mode 0644
-          notifies :restart, 'service[httpd]'
-        end
-      else
+    template '/etc/httpd/conf/httpd.conf' do
+      source node[:platform_version].to_i.to_s + '/httpd.conf.erb'
+      mode 0644
+      notifies :restart, 'service[httpd]'
+      variables({
+                    :document_root => node[ :httpd ][ :DocumentRoot ]
+                })
     end
+
+    # case node[:platform_version].to_i
+    #   when 6
+    #     template '/etc/httpd/conf/httpd.conf' do
+    #       source '6/httpd.conf.erb'
+    #       mode 0644
+    #       notifies :restart, 'service[httpd]'
+    #       variables({
+    #                     :document_root => node[ :httpd ][ :DocumentRoot ]
+    #                 })
+    #     end
+    #   when 7
+    #     template '/etc/httpd/conf/httpd.conf' do
+    #       source '7/httpd.conf.erb'
+    #       mode 0644
+    #       notifies :restart, 'service[httpd]'
+    #     end
+    #   else
+    # end
 
   else
 end

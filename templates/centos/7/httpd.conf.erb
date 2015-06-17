@@ -117,7 +117,7 @@ ServerAdmin root@localhost
 # symbolic links and aliases may be used to point to other locations.
 #
 #DocumentRoot "/var/www/html"
-DocumentRoot "<%= node['httpd']['DocumentRoot'] %>"
+DocumentRoot "<%= @document_root %>"
 
 #
 # Relax access to content within /var/www.
@@ -130,7 +130,7 @@ DocumentRoot "<%= node['httpd']['DocumentRoot'] %>"
 
 # Further relax access to the default document root:
 #<Directory "/var/www/html">
-<Directory "<%= node['httpd']['DocumentRoot'] %>">
+<Directory "<%= @document_root %>">
     #
     # Possible values for the Options directive are "None", "All",
     # or any combination of:

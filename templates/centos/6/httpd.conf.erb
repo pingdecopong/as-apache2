@@ -289,7 +289,7 @@ UseCanonicalName Off
 # documents. By default, all requests are taken from this directory, but
 # symbolic links and aliases may be used to point to other locations.
 #
-DocumentRoot "<%= node['httpd']['DocumentRoot'] %>"
+DocumentRoot "<%= @document_root %>"
 
 
 #
@@ -315,7 +315,7 @@ DocumentRoot "<%= node['httpd']['DocumentRoot'] %>"
 #
 # This should be changed to whatever you set DocumentRoot to.
 #
-<Directory "<%= node['httpd']['DocumentRoot'] %>">
+<Directory "<%= @document_root %>">
 
 EnableMMAP Off
 EnableSendfile Off
